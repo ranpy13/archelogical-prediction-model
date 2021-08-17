@@ -123,6 +123,8 @@ Again, each class has its own blob filter threshold. In the script combine_pipel
 
 ![blob](img/blob.PNG)
 
+_Fig.5: Effects of the blob filter_
+
 A side effect of the blob filter is that it removes small artifacts at the border, which might be caused as the object is only partially seen in the image. We are aware of this effect, but did not try to evaluate it anymore. Theoretically, different thresholds could be applied for blobs which are found at the image border to tackle this problem.
 
 ## Installation and Deployment
