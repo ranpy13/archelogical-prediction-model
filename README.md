@@ -128,7 +128,7 @@ In this section, instructions can be found to follow and reproduce our results w
 
 The code for this including a ReadMe file with further instructions to get the code run can be found [here](https://drive.google.com/drive/u/1/folders/1bX0xLqvOZwdnNvjdIRveAPfc6_7TBGkx).
 
-![installation](img/installation.PNG)
+![installation](img/installation.png)
 
 ### Mask re-formatting
 Fast.ai requires masks in another format, and we provide the re-formatted masks for download: See folder “train_masks_normalized” in maya.zip below. The normalization is super simple - we basically invert the colors:
@@ -178,7 +178,7 @@ We recommend to use these for the next step “Prediction”. Or re-create them 
 For prediction, simply run Seg_Predictor_007 ensemble.ipynb
 (same computation platform as above). Note that this must be run 3 times to obtain predictions for all 3 classes. To change classes, go to cell #4 of the notebook and uncomment the class you want to predict. For example, aguada: 
 
-![parameter](img/parameter.PNG)
+![parameter](img/parameter.png)
 _Class Parameters for the prediction script_
 
 #### Intermediate result: grayscale images
