@@ -43,11 +43,13 @@ The pipeline looks as follows: We split the training images into two groups: eit
 From images showing a class we copy the pixels of interest in one of the three styles (rectangular-cropped, pixel-precise or padded).
 
 ![masks](img/masks.PNG)
+
 _Fig. 1: The four stages to produce more images for training. We first take an empty image (Target_Origin) and randomly pick a cropped class image (Class_Slice). We finally put the Class_Slice into Target_Origin and save the corresponding mask._
 
 We then loop over all empty images. For each empty image (ref. Target_Origin), we randomly copy a cropped image (Class_Slice) and paste it at a random location in the empty image. We store the information where the class image was inserted and generate a mask (Generated_Mask) from it. For details of the pipeline, see Fig. 2.
 
 ![pipeline](img/pipeline.PNG)
+
 _Fig. 2: Pipeline for generating images. (1) We have a bag of empty images, (2) then draw randomly from a list of class images, cut them using one of the three fashions (pixel-precise, rectangled, or with padding) and (3) finally, place them randomly into the background image._
 
 ## Training the Machine Learning Models
@@ -103,6 +105,7 @@ The output of the pipeline so far is then represented as grayscale images for ea
 In our scripts, this section refers to the upper part of  the combine_pipeline code. The related parameter is denoted as threshold. The script is very simple, as it only converts the greyscale images (input) to binary images (masks) based on the requested threshold.
 
 ![filtering](img/filtering.PNG)
+
 _Fig.3:  Effects of probability filtering_
 
 The lower the threshold, the more pixels are accepted as class pixels. The standard generation of binary images refers to the threshold 127 (which represents the probability p=0.5). Each class can be filtered with its own threshold.
@@ -113,6 +116,7 @@ Note that lowering the threshold may cause artifacts and more false positive mis
 This method aims to remove small artifacts and areas, which might be too small to be considered an actual class. In advance we tried to get an impression of suitable thresholds by analyzing blob sizes, ratios and contours, but failed to get a threshold to perform a nice separation between the classes.
 
 ![histo](img/histo.PNG)
+
 _Fig.4:  Evaluation of the area in px for all three classes_
 
 Again, each class has its own blob filter threshold. In the script combine_pipeline, this refers to the lower part. The variable blob represents the min area in pixels to be filtered.
@@ -179,6 +183,7 @@ For prediction, simply run Seg_Predictor_007 ensemble.ipynb
 (same computation platform as above). Note that this must be run 3 times to obtain predictions for all 3 classes. To change classes, go to cell #4 of the notebook and uncomment the class you want to predict. For example, aguada: 
 
 ![parameter](img/parameter.png)
+
 _Class Parameters for the prediction script_
 
 #### Intermediate result: grayscale images
